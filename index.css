@@ -1,0 +1,72 @@
+body {
+    background-color: antiquewhite;
+}
+
+h1 {
+    text-align: center;
+}
+
+div[id=grid] {
+    display: grid;
+    grid-template-columns: 72px 72px 72px;
+    grid-gap: 1px;
+    margin-left: 840px;
+}
+
+.cell {
+    background-color: aliceblue;
+    border: 1px solid;
+    height: 70px;
+    width: 70px;
+    text-align:center;
+    line-height: 70px;
+    font-size: 50px;
+    cursor: pointer;
+    user-select: none;
+}
+
+#result {
+    text-align: center;
+    font-size: xx-large;
+    margin-top: 40px;
+    color: green;
+}
+
+.reset {
+    margin-top: 30px;
+    margin-left: 910px;
+    height: 30px;
+    width: 80px;
+}
+
+.player {
+    text-align: center;
+    line-height: 100px;
+    font-size: xx-large;
+}
+
+h2 {
+    margin-left: 200px;
+}
+
+#player-0 {
+    margin-left: 320px;
+    margin-top: -37px;
+    font-size: xx-large;
+}
+
+#player-X {
+    margin-left: 150px;
+    font-size: xx-large;
+}
+
+div[id=X-pl] {
+    margin-left: 130px;
+    font-size: large;
+}
+
+div[id=O-pl] {
+    margin-left: 300px;
+    margin-top: -21px;
+    font-size: large;
+}
