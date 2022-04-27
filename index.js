@@ -5,6 +5,7 @@ let result = document.getElementById("result");
 let reset = document.getElementById("reset");
 let wonX = document.getElementById("player-X");
 let won0 = document.getElementById("player-0");
+let gameOver = false;
 let moves = 0;
 let player = "X";
 
@@ -15,6 +16,9 @@ for (let line = 0; line < 3; ++line) {
         grid.appendChild(cell);
         cell.addEventListener("click", pressX0, {once:true});
         function pressX0() {
+            if (gameOver) {
+                return;
+            }
             this.innerHTML = player;
             grids[line][column] = player;
             ++moves;
@@ -32,6 +36,7 @@ function checkWinner() {
     let winningPlayer = 0;
     for (let i = 0; i < 3; ++i) {
         if (grids[0][i] != "" && grids[0][i] == grids[1][i] && grids[0][i] == grids[2][i]) {
+            gameOver = true;
             winningPlayer = grids[0][i];
             result.innerHTML = "Player " + winningPlayer + " won";
             if (winningPlayer == "X") {
@@ -40,6 +45,7 @@ function checkWinner() {
                 ++won0.innerHTML;
             }
         } else if (grids[i][0] != "" && grids[i][0] == grids[i][1] && grids[i][0] == grids[i][2]) {
+            gameOver = true;
             winningPlayer = grids[i][0];
             result.innerHTML = "Player " + winningPlayer + " won";
             if (winningPlayer == "X") {
@@ -50,6 +56,7 @@ function checkWinner() {
         }
     }
     if (grids[0][0] != "" && grids[0][0] == grids[1][1] && grids[0][0] == grids[2][2]) {
+        gameOver = true;
         winningPlayer = grids[0][0];
         result.innerHTML = "Player " + winningPlayer + " won";
         if (winningPlayer == "X") {
@@ -58,6 +65,7 @@ function checkWinner() {
             ++won0.innerHTML;
         }
     } else if (grids[0][2] != "" && grids[0][2] == grids[1][1] && grids[0][2] == grids[2][0]) {
+        gameOver = true;
         winningPlayer = grids[0][2];
         result.innerHTML = "Player " + winningPlayer + " won";
         if (winningPlayer == "X") {
